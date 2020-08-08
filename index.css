@@ -5,6 +5,7 @@ html{
 	cursor: default;
 	width: 100%;
 	background-image: url(one.jpg);
+	background-attachment: fixed;
 }
 
 
