@@ -23,7 +23,7 @@ let refreshlast= function(){
 let CheckifSeen = function(name){
 	for(var i=0;i<series.length;i++)
 		{
-			if(name === series[i].Name)
+			if(name.toUpperCase() === series[i].Name.toUpperCase())
 			{
 				return i;
 			}	
