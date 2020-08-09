@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Questrial&display=swap');
+html{
+	font-family: Questrial;
+	background-color: black;
+	cursor: default;
+	width: 100%;
+	background-image: url(one.jpg);
+	background-attachment: fixed;
+
+}
+
+
+#navigator{
+	display: block;
+	height: 50px;
+	margin-top: -5px;
+	width: 100%;
+	top: 0;
+	z-index: 2;
+	position: fixed;
+	padding-top: 25px;
+	background-color:rgba(0,0,0,0.7);
+}
+.navbtn{
+	display: inline;
+	font-size: 20px;
+	margin-right: 15px;
+	border:solid white 1px;
+	padding: 2px 12px;
+	border-radius: 10px;
+	cursor: pointer;
+	color:white;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+.navbtn:hover{
+	border:none;
+	cursor: pointer;
+}
+ #contactbtn{
+ 	float:right;
+ 	margin-right: 80px;
+ }
+ #Episoderimg{
+ 	width: 150px;	
+ }
+ #Episoder{
+ 	float: right;
+ 	margin-top: -10px;
+ 	margin-right: 2em;
+ }
+
+#welcome{
+	display: grid;
+	margin-top: 7em;
+	grid-template-columns: 1fr 8fr 1fr;
+	grid-template-rows: repeat(2,1fr);
+	/*background-image: url(one.jpg);*/
+	background-repeat: no-repeat;
+    background-position: center; 
+    position: relative;
+    height: 250px;
+    cursor: default;
+
+}
+#topic{
+	grid-column-start: 2;
+	grid-row-start: 1;
+	
+	color: white;
+	font-size: 40px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	text-shadow: 1px 12px 5px black;
+}
+#lastwatch{
+	grid-column-start: 2;
+	grid-row-start: 2;
+	color: white;
+	font-size: 35px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	text-shadow: 1px 12px 5px black;
+}
+#series{
+	margin-top: 20px;
+}
+
+#savenew{
+margin-left: 8%;
+margin-bottom: 1em;
+}
+.newinput, #saveinput, #deletebtn{
+	margin-right: 1em;
+	border-radius: 10px;
+	border:none;
+	padding: 1em;
+	margin-top: 5px;
+}
+#saveinput, #deletebtn{
+	background-color: #70a7ff;
+	width: 100px;
+	cursor: pointer;
+}
+#saveinput:active{
+	background-color: #9fc2f9;
+}
+#seriestable{
+	margin-left: 10%;
+	width:80%;
+	color:white;
+	border: 1px solid white;
+	border-collapse: collapse;
+}
+th , td{
+	border: 1px solid white;
+	padding: 20px;
+}
+a{
+	text-decoration: none;
+	color:white;
+}

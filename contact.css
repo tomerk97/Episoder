@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Questrial&display=swap');
+html{
+	font-family: Questrial;
+	cursor: default;
+}
+
+body{
+	background-image: url(one.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: black;
+	
+}
+#navigator{
+	display: block;
+	height: 50px;
+	margin-top: 30px;
+	width: 90%;
+	top: 0;
+	z-index: 2;
+	position: fixed;
+	
+}
+.navbtn{
+	display: inline;
+	font-size: 20px;
+	margin-right: 15px;
+	border:solid white 1px;
+	padding: 2px 12px;
+	border-radius: 10px;
+	cursor: pointer;
+	color:white;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+ .navbtnanchor {
+ 	text-decoration: none;
+ 	color:white;
+
+ }
+.navbtn:hover{
+	border:none;
+	cursor: pointer;
+}
+ #contactbtn{
+ 	float:right;
+
+ }
+
+#welcome{
+	display: grid;
+	margin-top: 7em;
+	grid-template-columns: repeat(auto,1fr);
+	grid-template-rows: repeat(auto,1fr);
+	background-repeat: no-repeat;
+    background-position: center; 
+    position: relative;
+    height: 350px;
+    cursor: default;
+}
+#topic{
+	grid-column-start: 2;
+	grid-row-start: 1;
+	color: white;
+	font-size: 50px;
+	text-transform: uppercase;
+	letter-spacing: 10px;
+	text-shadow: 1px 12px 5px black;
+	text-decoration: none;
+}
+#mail{
+	margin-left: 10px;
+	grid-column-start: 2;
+	grid-row-start: 2;
+	color:white;
+}
+#phone{
+	margin-left: 10px;
+	grid-column-start: 2;
+	grid-row-start:3;
+	color:white;
+}
+a{
+	letter-spacing: 3px;
+	color:white;
+}
