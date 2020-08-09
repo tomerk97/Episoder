@@ -6,7 +6,7 @@ html{
 	width: 100%;
 	background-image: url(one.jpg);
 	background-attachment: fixed;
-
+	background-repeat: no-repeat;
 }
 
 
