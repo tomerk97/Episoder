@@ -79,7 +79,7 @@ let deleteSeries =function()
 var wantToDelete= inputdelete.value;
 		for(let i = 0 ; i<series.length;i++)
 		{
-			if(wantToDelete===series[i].Name&&wantToDelete!="Series")
+			if(wantToDelete.toUpperCase()===series[i].Name.toUpperCase()&&wantToDelete!="Series")
 			{
 						series.splice(i, 1);
 						alert(`${wantToDelete} Deleted`);
