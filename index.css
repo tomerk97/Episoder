@@ -83,7 +83,8 @@ html{
 	text-shadow: 1px 12px 5px black;
 }
 #series{
-	margin-top: 20px;
+	margin-top: 0px;
+	padding-bottom: 20px;
 }
 
 #savenew{
