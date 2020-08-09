@@ -89,7 +89,7 @@ html{
 }
 
 #savenew{
-margin-left: 8%;
+margin-left: 10%;
 margin-bottom: 1em;
 }
 .newinput, #saveinput, #deletebtn{
@@ -109,7 +109,7 @@ margin-bottom: 1em;
 }
 #seriestable{
 	margin-left: 10%;
-	width:80%;
+	width:50%;
 	color:white;
 	border: 1px solid white;
 	border-collapse: collapse;
@@ -118,6 +118,7 @@ th , td{
 	border: 0.07em solid white;
 	padding: 20px;
 	font-size: 20px;
+
 }
 a{
 	text-decoration: none;

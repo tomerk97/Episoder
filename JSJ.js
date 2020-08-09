@@ -11,7 +11,7 @@ var tabledata = document.getElementsByClassName("tablerows");
 
 
 
-let refreshlast= function(){
+let refreshlast= function(){ //this function refresh the last watched line
 	var sernum = series.length-1;
 	if(sernum!=0){
 	lastwatch.innerHTML=(`You Last Watched: <br> "${series[sernum].Name}", Season: ${series[sernum].Season}, Episode: ${series[sernum].Episode}`);
@@ -19,20 +19,24 @@ let refreshlast= function(){
 	else{lastwatch.innerHTML="";}
 }
 
+let refreshupdate = function(i){
+lastwatch.innerHTML=(`You Last Watched: <br> "${series[i].Name}", Season: ${series[i].Season}, Episode: ${series[i].Episode}`);
+}
 
-let CheckifSeen = function(name){
+let CheckifSeen = function(name){	//this series check if the series exists in the array,if true it returns the place in the array, else it returns false
 	for(var i=0;i<series.length;i++)
 		{
 			if(name.toUpperCase() === series[i].Name.toUpperCase())
 			{
 				return i;
+
 			}	
 		}
 	return false;
 }
 
 
-let addNew = function(NewName, NewSeason,NewEpisode)
+let addNew = function(NewName, NewSeason,NewEpisode)	//this function add new object to the series array
 {	if(NewName.length!=0&&NewSeason.value!=0 && NewEpisode!=0&&NewName!="Series"){
 		if(!CheckifSeen(NewName))
 		{
@@ -42,7 +46,9 @@ let addNew = function(NewName, NewSeason,NewEpisode)
 		else
 		{
 			let place = CheckifSeen(NewName);
-			series.splice(place, 1,{Name:NewName,Season:NewSeason,Episode:NewEpisode});			
+			refreshupdate(place);
+			series.splice(place, 1,{Name:NewName,Season:NewSeason,Episode:NewEpisode});	
+			return place;		
 		}
 	}
 	else
@@ -50,7 +56,7 @@ let addNew = function(NewName, NewSeason,NewEpisode)
 }
 
 
-let displayArray = function(){
+let displayArray = function(){			//This function make the table, using the "series" array
 	table.removeChild(table.lastChild);//Delete the old table 
 	for(let i = 0 ; i<series.length;i++)//insert the new table
 	{		
@@ -68,28 +74,28 @@ let displayArray = function(){
 }
 displayArray();
 
-let refreshvalues = function(){
+let refreshvalues = function(){		//this function reset the placeholders
 	inputseries.value=null;
 	inputseason.value=null;
 	inputepisode.value=null;
 	
 }
 
-let deleteSeries =function()
+let deleteSeries =function()			//this function delete series from table and array by input
 {
 var wantToDelete= inputdelete.value;
-		for(let i = 0 ; i<series.length;i++)
-		{
+	for(let i = 0 ; i<series.length;i++)
+	{
 			if(wantToDelete.toUpperCase()===series[i].Name.toUpperCase()&&wantToDelete!="Series")
 			{
 						series.splice(i, 1);
 						alert(`${wantToDelete} Deleted`);
 			}
-		}
-		inputdelete.value=null;
+	}
+inputdelete.value=null;
 }
 
-let refreshListener = function(){
+let refreshListener = function(){			//this function makes onclick listeners for evrey row using for loop
 	for(let i = 1 ; i<series.length;i++)
 	{
 		tabledata[i].addEventListener("click", function(){
@@ -101,11 +107,47 @@ let refreshListener = function(){
 	}
 }
 
+let addWithEnter = function(event){
+	if(event.keyCode==13)
+		{
+			let selectrefresh = addNew(inputseries.value, inputseason.value , inputepisode.value);
+			displayArray();
+			refreshvalues();
+			if(selectrefresh>=0){
+			refreshupdate(selectrefresh);
+			}
+			else{		
+			refreshlast();}
+			refreshListener();	
+		}
+}
+
+let deleteWithEnter = function(event){
+	if(event.keyCode==13)
+	{
+		var wantToDelete= inputdelete.value;
+			for(let i = 0 ; i<series.length;i++)
+			{
+				if(wantToDelete.toUpperCase()===series[i].Name.toUpperCase()&&wantToDelete!="Series")
+				{
+							series.splice(i, 1);
+							alert(`${wantToDelete} Deleted`);
+				}
+			}
+			inputdelete.value=null;
+	}
+}
 savebtn.addEventListener("click",function(){
-		addNew(inputseries.value, inputseason.value , inputepisode.value);
+		let selectrefresh = addNew(inputseries.value, inputseason.value , inputepisode.value);
 		displayArray();
 		refreshvalues();
-		refreshlast();
+		if(selectrefresh>=0){
+			refreshupdate(selectrefresh);
+		}
+		else
+		{
+		refreshlast();}
+
 		refreshListener();			
 })
 
@@ -115,3 +157,17 @@ deletebtn.addEventListener("click",function(){
 		refreshlast();
 })
 
+inputepisode.addEventListener('keypress', function(){
+addWithEnter(event);
+});
+inputseason.addEventListener('keypress', function(){
+addWithEnter(event);
+});
+inputseries.addEventListener('keypress', function(){
+addWithEnter(event);
+});
+inputdelete.addEventListener('keypress',function(){
+deleteWithEnter(event);
+displayArray();
+refreshlast();
+})
