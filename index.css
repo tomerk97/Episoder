@@ -8,16 +8,16 @@ html{
 	background-attachment: fixed;
 }
 
-
 #navigator{
 	display: block;
 	height: 50px;
-	margin-top: 30px;
-	width: 90%;
+	margin-top: -5px;
+	width: 100%;
 	top: 0;
 	z-index: 2;
 	position: fixed;
-	
+	padding-top: 25px;
+	background-color:rgba(0,0,0,0.7);
 }
 .navbtn{
 	display: inline;
@@ -37,7 +37,9 @@ html{
 }
  #contactbtn{
  	float:right;
+ 	margin-right: 80px;
  }
+
 
 #welcome{
 	display: grid;
