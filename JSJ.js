@@ -160,9 +160,11 @@ deletebtn.addEventListener("click",function(){
 inputepisode.addEventListener('keypress', function(){
 addWithEnter(event);
 });
+
 inputseason.addEventListener('keypress', function(){
 addWithEnter(event);
 });
+
 inputseries.addEventListener('keypress', function(){
 addWithEnter(event);
 });

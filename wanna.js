@@ -39,7 +39,8 @@ let addNew = function(NewName)	//this function add new object to the series arra
 		else
 		{
 			let place = CheckifSeen(NewName);
-			series.splice(place, 1,{Name:NewName});			
+			series.splice(place, 1,{Name:NewName});	
+			return place;		
 		}
 	}
 	else
@@ -91,6 +92,38 @@ let refreshListener = function(){			//this function makes onclick listeners for 
 		})
 	}
 }
+let addWithEnter = function(event){
+	
+	if(event.keyCode==13)
+		{
+			let selectrefresh = addNew(inputseries.value);
+
+			displayArray();
+			refreshvalues();
+			if(selectrefresh>=0){
+			refreshupdate(selectrefresh);
+			}
+			else{		
+			refreshlast();}
+			refreshListener();	
+		}
+}
+
+let deleteWithEnter = function(event){
+	if(event.keyCode==13)
+	{
+		var wantToDelete= inputdelete.value;
+			for(let i = 0 ; i<series.length;i++)
+			{
+				if(wantToDelete.toUpperCase()===series[i].Name.toUpperCase()&&wantToDelete!="Series")
+				{
+							series.splice(i, 1);
+							alert(`${wantToDelete} Deleted`);
+				}
+			}
+			inputdelete.value=null;
+	}
+}
 
 savebtn.addEventListener("click",function(){
 		addNew(inputseries.value);
@@ -106,3 +139,15 @@ deletebtn.addEventListener("click",function(){
 		refreshlast();
 })
 
+inputseries.addEventListener('keypress', function(){
+ addWithEnter(event);
+
+});
+
+
+
+inputdelete.addEventListener('keypress',function(){
+deleteWithEnter(event);
+displayArray();
+refreshlast();
+})
