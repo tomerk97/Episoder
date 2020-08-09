@@ -85,6 +85,7 @@ var wantToDelete= inputdelete.value;
 						alert(`${wantToDelete} Deleted`);
 			}
 		}
+	inputdelete.value=null;
 }
 
 let refreshListener = function(){
