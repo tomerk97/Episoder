@@ -17,7 +17,7 @@ html{
 	z-index: 2;
 	position: fixed;
 	padding-top: 25px;
-	background-color:black;
+	background-color:rgba(0,0,0,0.7);
 }
 .navbtn{
 	display: inline;
@@ -86,6 +86,7 @@ margin-bottom: 1em;
 	border-radius: 10px;
 	border:none;
 	padding: 1em;
+	margin-top:5px;
 }
 #saveinput, #deletebtn{
 	background-color: #70a7ff;
