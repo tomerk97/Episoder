@@ -8,6 +8,7 @@ var deletebtn = document.getElementById("deletebtn");
 var lastwatch =document.getElementById("lastwatch");
 var table=document.getElementById("seriestable");
 var tabledata = document.getElementsByClassName("tablerows");
+var choose = document.getElementById("selectwatched");
 
 
 
@@ -107,6 +108,23 @@ let refreshListener = function(){			//this function makes onclick listeners for 
 	}
 }
 
+let refreshselector = function(){
+	choose.options.length=0;
+	var select = document.createElement("option");	
+	select.text = "History";
+	choose.add(select);
+	for(let i = 1 ; i<series.length;i++)
+	{
+	var select = document.createElement("option");
+
+	select.text = series[i].Name;
+	choose.add(select);
+	}
+	
+
+}
+
+
 let addWithEnter = function(event){
 	if(event.keyCode==13)
 		{
@@ -119,6 +137,8 @@ let addWithEnter = function(event){
 			else{		
 			refreshlast();}
 			refreshListener();	
+			refreshselector();
+
 		}
 }
 
@@ -141,6 +161,7 @@ savebtn.addEventListener("click",function(){
 		let selectrefresh = addNew(inputseries.value, inputseason.value , inputepisode.value);
 		displayArray();
 		refreshvalues();
+		refreshselector();
 		if(selectrefresh>=0){
 			refreshupdate(selectrefresh);
 		}
@@ -155,6 +176,7 @@ deletebtn.addEventListener("click",function(){
 		deleteSeries();
 		displayArray();
 		refreshlast();
+		refreshselector();
 })
 
 inputepisode.addEventListener('keypress', function(){
@@ -172,4 +194,10 @@ inputdelete.addEventListener('keypress',function(){
 deleteWithEnter(event);
 displayArray();
 refreshlast();
+refreshselector();
+});
+
+choose.addEventListener("change",function(){
+inputseries.value=choose.value;
+refreshselector();
 })

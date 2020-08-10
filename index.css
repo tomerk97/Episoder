@@ -123,3 +123,21 @@ a{
 	text-decoration: none;
 	color:white;
 }
+
+#selectwatched{
+	background-color: rgba(40,40,40,1);
+	padding: 1em 3em;
+	margin-top: 1em;
+	border:none;
+	border-radius: 10px;
+	color:white;
+	font-size: 0.9em;
+}
+
+
+#selectwatched>option{
+	background-color: rgb(240,240,240);
+	color:black;
+	border:10px solid white;
+	
+}
