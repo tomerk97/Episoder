@@ -36,7 +36,10 @@ body{
  .navbtnanchor {
  	text-decoration: none;
  	color:white;
-
+ }
+ .navbtn>a{
+ 	text-decoration: none;
+ 	color:white;
  }
 .navbtn:hover{
 	border:none;
